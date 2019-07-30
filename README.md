@@ -1,1 +1,1 @@
-"# logandeal.com" 
+# logandeal.com
