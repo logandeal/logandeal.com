@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build-docs": "next build && next export -o docs && touch docs/.nojekyll",
+    "build-docs": "next build && next export -o docs && touch docs/.nojekyll && (printf 'logandeal.com' > docs/CNAME)",
     "start": "next start"
   },
   "dependencies": {
