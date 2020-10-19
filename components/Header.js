@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <>
       <nav>
-        <h1>Next'Blog</h1>
+        <h1>Logan Deal</h1>
         <div>
           <Link href='/'>
             <a>Blog</a>
