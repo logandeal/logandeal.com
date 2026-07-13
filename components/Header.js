@@ -1,30 +1,35 @@
-import Link from 'next/link'
-import { AiFillGithub } from 'react-icons/ai'
-import { AiFillTwitterCircle } from 'react-icons/ai'
-import { AiFillLinkedin } from 'react-icons/ai'
+import Link from 'next/link';
+import { AiFillGithub } from 'react-icons/ai';
+import { AiFillTwitterCircle } from 'react-icons/ai';
+import { AiFillLinkedin } from 'react-icons/ai';
 
 export default function Header() {
   return (
     <>
-      <link rel="stylesheet" href="/globals.css"></link>
+      <link rel='stylesheet' href='/globals.css'></link>
       <nav>
         <div>
-          <span id="first">
-            <img src="/me.png" width="50" height="46"></img>
+          <span id='first'>
+            <img src='/me.png' width='50' height='46'></img>
           </span>
           <h1>Logan Deal</h1>
-          <span className="icon">
-            <a href='https://github.com/logandeal' target="_blank"><AiFillGithub/></a>
+          <span className='icon'>
+            <a href='https://github.com/logandeal' target='_blank'>
+              <AiFillGithub />
+            </a>
           </span>
-          <span className="icon">
-            <a href='https://twitter.com/CaptainSwoosh_' target="_blank"><AiFillTwitterCircle/></a>
+          <span className='icon'>
+            <a href='https://twitter.com/CaptainSwoosh_' target='_blank'>
+              <AiFillTwitterCircle />
+            </a>
           </span>
-          <span className="icon">
-            <a href='https://www.linkedin.com/in/logan-d-4ba836128/' target="_blank"><AiFillLinkedin/></a>
+          <span className='icon'>
+            <a href='https://www.linkedin.com/in/loganedeal/' target='_blank'>
+              <AiFillLinkedin />
+            </a>
           </span>
-          
         </div>
-        <div className="siteLinks">
+        <div className='siteLinks'>
           <Link href='/'>
             <a>Home</a>
           </Link>
@@ -77,5 +82,5 @@ export default function Header() {
         }
       `}</style>
     </>
-  )
+  );
 }
