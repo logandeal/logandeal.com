@@ -1,7 +1,4 @@
 import Link from 'next/link'
-import { Post } from "../components/Post";
-import { posts } from "../getAllPosts";
-import React from 'react'
 
 function IndexPage() {
   return (
@@ -10,18 +7,14 @@ function IndexPage() {
         My name is Logan Deal. I'm a computer science entrepreneur. See what's up (or down):
       </div>
       <br/>
-      <p>You can check out my most recent &nbsp;
-      <Link href='/blog'>
-        <a>blog post</a>
-      </Link>
+      <p>You can check out my most recent{' '}
+      <Link className='post-link' href='/blog'>blog post</Link>
       </p>
-      <p>or view cool new stuff in my &nbsp;
-      <Link href='/portfolio'>
-        <a>portfolio</a>
-      </Link>
+      <p>or view cool new stuff in my{' '}
+      <Link className='post-link' href='/portfolio'>portfolio</Link>
       .</p>
       <style jsx>{`
-        a {
+        :global(a.post-link) {
           color: orange;
         }
       `}</style>
