@@ -1,22 +1,32 @@
+import { useState } from 'react';
 import Sidebar from '../components/Sidebar';
 import AboutSection from '../components/home/AboutSection';
 import BlogSection from '../components/home/BlogSection';
 import ProjectsSection from '../components/home/ProjectsSection';
 import TimelineSection from '../components/home/TimelineSection';
-import ExtrasSection from '../components/home/ExtrasSection';
-import FeedSection from '../components/home/FeedSection';
+import MoreSection from '../components/home/MoreSection';
 
 function IndexPage() {
+  const [hoveredId, setHoveredId] = useState(null);
+
+  const handleMouseOver = (event) => {
+    const section = event.target.closest('section[id]');
+    setHoveredId(section?.id ?? null);
+  };
+
   return (
     <div className="home">
-      <Sidebar />
-      <main className="sections">
+      <Sidebar activeId={hoveredId} />
+      <main
+        className="sections"
+        onMouseOver={handleMouseOver}
+        onMouseLeave={() => setHoveredId(null)}
+      >
         <AboutSection />
         <BlogSection />
         <ProjectsSection />
         <TimelineSection />
-        <ExtrasSection />
-        <FeedSection />
+        <MoreSection />
       </main>
       <style jsx>{`
         .home {

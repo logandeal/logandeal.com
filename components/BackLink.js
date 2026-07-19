@@ -4,7 +4,7 @@ export default function BackLink() {
   return (
     <>
       <Link href='/' className='back-link'>
-        ← Back to home
+        ← Back
       </Link>
       <style jsx>{`
         .back-link {

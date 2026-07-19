@@ -39,7 +39,8 @@ export default function ProjectsSection() {
           display: block;
           color: #fff;
           text-decoration: none;
-          background: #3a3a3a;
+          background: #454545;
+          border: 1px solid #555;
           border-radius: 8px;
           overflow: hidden;
         }
@@ -50,8 +51,7 @@ export default function ProjectsSection() {
           display: block;
         }
         .card h3,
-        .card p,
-        .card .tags {
+        .card p {
           padding: 0 1rem;
         }
         .card p {
@@ -64,7 +64,7 @@ export default function ProjectsSection() {
           flex-wrap: wrap;
           gap: 0.5rem;
           margin: 0;
-          padding-bottom: 1rem;
+          padding: 0 1rem 1rem;
         }
         .tags li {
           font-size: 0.75rem;

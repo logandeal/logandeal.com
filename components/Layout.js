@@ -32,6 +32,17 @@ export default function Layout({ children, pageTitle, description, fullWidth }) 
             font-weight: 400;
             font-family: var(--font-instrument-serif), Georgia, "Times New Roman",
                serif;
+            color: #fafafa;
+         }
+         h2 {
+            font-size: 2.25rem;
+            margin: 0 0 1rem;
+         }
+         h3 {
+            color: #e8e8e8;
+         }
+         p {
+            color: #e0e0e0;
          }
          a {
             color: #fff;

@@ -1,24 +1,27 @@
 import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 import { FaXTwitter } from 'react-icons/fa6';
-import useActiveSection from './useActiveSection';
 
 const SECTIONS = [
   { id: 'about', label: 'About' },
   { id: 'blog', label: 'Blog' },
   { id: 'projects', label: 'Projects' },
   { id: 'timeline', label: 'Timeline' },
-  { id: 'extras', label: 'Extras' },
-  { id: 'feed', label: 'Feed' },
+  { id: 'more', label: 'More' },
 ];
 
-export default function Sidebar() {
-  const activeId = useActiveSection(SECTIONS.map((section) => section.id));
+export default function Sidebar({ activeId }) {
 
   return (
     <>
       <aside>
         <div className='intro'>
-          <img src='/me.png' width='50' height='46' alt='Logan Deal' />
+          <img
+            src='/me.png'
+            width='56'
+            height='56'
+            alt='Logan Deal'
+            style={{ objectFit: 'cover' }}
+          />
           <h1>Logan Deal</h1>
           <p className='tagline'>Computer science entrepreneur.</p>
         </div>
@@ -51,7 +54,7 @@ export default function Sidebar() {
             <AiFillGithub />
           </a>
           <a
-            href='https://twitter.com/CaptainSwoosh_'
+            href='https://x.com/CaptainSwoosh_'
             target='_blank'
             rel='noopener noreferrer'
             aria-label='Twitter'
@@ -74,7 +77,7 @@ export default function Sidebar() {
           box-sizing: border-box;
         }
         .intro h1 {
-          font-size: 1.75rem;
+          font-size: 2.5rem;
           margin: 1rem 0 0.5rem;
         }
         .tagline {

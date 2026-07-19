@@ -21,6 +21,8 @@ export default function BlogSection() {
           max-width: 640px;
         }
         .view-all {
+          display: inline-block;
+          margin-top: 0.5rem;
           color: orange;
           text-decoration: none;
         }
