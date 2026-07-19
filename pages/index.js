@@ -1,27 +1,64 @@
-import Link from 'next/link'
+import { useState } from 'react';
+import Sidebar from '../components/Sidebar';
+import AboutSection from '../components/home/AboutSection';
+import BlogSection from '../components/home/BlogSection';
+import ProjectsSection from '../components/home/ProjectsSection';
+import TimelineSection from '../components/home/TimelineSection';
+import MoreSection from '../components/home/MoreSection';
 
 function IndexPage() {
+  const [hoveredId, setHoveredId] = useState(null);
+
+  const handleMouseOver = (event) => {
+    const section = event.target.closest('section[id]');
+    setHoveredId(section?.id ?? null);
+  };
+
   return (
-    <>
-      <div>
-        My name is Logan Deal. I'm a computer science entrepreneur. See what's up (or down):
-      </div>
-      <br/>
-      <p>You can check out my most recent{' '}
-      <Link className='post-link' href='/blog'>blog post</Link>
-      </p>
-      <p>or view cool new stuff in my{' '}
-      <Link className='post-link' href='/portfolio'>portfolio</Link>
-      .</p>
+    <div className="home">
+      <Sidebar activeId={hoveredId} />
+      <main
+        className="sections"
+        onMouseOver={handleMouseOver}
+        onMouseLeave={() => setHoveredId(null)}
+      >
+        <AboutSection />
+        <BlogSection />
+        <ProjectsSection />
+        <TimelineSection />
+        <MoreSection />
+      </main>
       <style jsx>{`
-        :global(a.post-link) {
-          color: orange;
+        .home {
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 0 1.5rem;
+          display: flex;
+          gap: 3rem;
+        }
+        .sections {
+          flex: 1;
+          min-width: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 5rem;
+          padding: 3rem 0;
+        }
+        @media (max-width: 900px) {
+          .home {
+            flex-direction: column;
+            gap: 1rem;
+          }
+          .sections {
+            gap: 4rem;
+            padding-top: 0;
+          }
         }
       `}</style>
-    </>
+    </div>
   );
 }
 
-IndexPage.backgroundImage = "coding.jpeg";
+IndexPage.fullWidth = true;
 
 export default IndexPage;

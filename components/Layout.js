@@ -1,7 +1,6 @@
 import Head from "next/head";
-import Header from "./Header";
 
-export default function Layout({ children, pageTitle, description }) {
+export default function Layout({ children, pageTitle, description, fullWidth }) {
    return (
       <>
          <Head>
@@ -11,6 +10,9 @@ export default function Layout({ children, pageTitle, description }) {
             <title>{pageTitle}</title>
          </Head>
          <style jsx global>{`
+         html {
+            scroll-behavior: smooth;
+         }
          html,
          body {
             margin: 0;
@@ -30,6 +32,17 @@ export default function Layout({ children, pageTitle, description }) {
             font-weight: 400;
             font-family: var(--font-instrument-serif), Georgia, "Times New Roman",
                serif;
+            color: #fafafa;
+         }
+         h2 {
+            font-size: 2.25rem;
+            margin: 0 0 1rem;
+         }
+         h3 {
+            color: #e8e8e8;
+         }
+         p {
+            color: #e0e0e0;
          }
          a {
             color: #fff;
@@ -41,8 +54,7 @@ export default function Layout({ children, pageTitle, description }) {
          }
          `}</style>
          <main>
-            <Header />
-            <div className="content">{children}</div>
+            {fullWidth ? children : <div className="content">{children}</div>}
          </main>
       </>
    )

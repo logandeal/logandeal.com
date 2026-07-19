@@ -1,4 +1,3 @@
-import "react-image-gallery/styles/css/image-gallery.css";
 import localFont from "next/font/local";
 import Layout from "../components/Layout";
 
@@ -39,7 +38,11 @@ export default function App({ Component, pageProps }) {
 
   return (
     <div className={`app-root ${satoshi.variable} ${instrumentSerif.variable}`}>
-      <Layout pageTitle="Logan Deal" description="My Personal Blog">
+      <Layout
+        pageTitle="Logan Deal"
+        description="My Personal Blog"
+        fullWidth={Boolean(Component.fullWidth)}
+      >
         <Component {...pageProps} />
       </Layout>
       <style jsx>{`
