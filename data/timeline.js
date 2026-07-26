@@ -1,4 +1,3 @@
-// TODO: replace placeholder timeline entries with real history.
 export const timeline = [
   {
     date: 'TODO: 20XX — Present 1',

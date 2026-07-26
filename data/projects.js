@@ -1,4 +1,3 @@
-// TODO: replace placeholder projects with real work.
 export const projects = [
   {
     title: 'TODO: Project One',

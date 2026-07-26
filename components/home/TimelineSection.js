@@ -1,5 +1,5 @@
 import { timeline } from '../../data/timeline';
-import { Dot, LineDotRightHorizontal } from 'lucide-react';
+import { LineDotRightHorizontal } from 'lucide-react';
 
 export default function TimelineSection() {
   return (

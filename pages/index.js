@@ -7,7 +7,7 @@ import TimelineSection from '../components/home/TimelineSection';
 import MoreSection from '../components/home/MoreSection';
 
 function IndexPage() {
-  const [hoveredId, setHoveredId] = useState(null);
+  const [activeId, setActiveId] = useState(null);
   const mainRef = useRef(null);
   const mousePos = useRef({ x: 0, y: 0 });
 
@@ -35,7 +35,7 @@ function IndexPage() {
           minDistance = distance;
         }
       });
-      setHoveredId(closestSection.id);
+      setActiveId(closestSection.id);
     };
 
     const scheduleUpdate = () => {
@@ -62,7 +62,7 @@ function IndexPage() {
 
   return (
     <div className='home'>
-      <Sidebar activeId={hoveredId} />
+      <Sidebar activeId={activeId} />
       <main ref={mainRef} className='sections'>
         <AboutSection />
         <BlogSection />
