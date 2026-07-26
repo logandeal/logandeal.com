@@ -1,4 +1,5 @@
 import { timeline } from '../../data/timeline';
+import { Dot, LineDotRightHorizontal } from 'lucide-react';
 
 export default function TimelineSection() {
   return (
@@ -8,9 +9,14 @@ export default function TimelineSection() {
         <ul>
           {timeline.map((entry) => (
             <li key={`${entry.title}-${entry.date}`}>
-              <span className='date'>{entry.date}</span>
+              <span className='date'>
+                <span className='tick'>
+                  <LineDotRightHorizontal size={16} />
+                </span>
+                {entry.date}
+              </span>
               <h3>
-                {entry.title} · {entry.org}
+                {entry.title} • {entry.org}
               </h3>
               <p>{entry.description}</p>
             </li>
@@ -28,13 +34,24 @@ export default function TimelineSection() {
           border-left: 2px solid #555;
         }
         li {
-          padding: 0 0 1.5rem 1.5rem;
+          padding: 0 0 1rem 1rem;
         }
         .date {
-          color: #bdbdbd;
+          position: relative;
+          color: #f39c12;
           font-size: 0.85rem;
         }
+        .tick {
+          display: flex;
+          position: absolute;
+          left: -1.5rem;
+          top: 50%;
+          transform: translateY(-50%);
+        }
         h3 {
+          display: flex;
+          align-items: center;
+          gap: 0.35rem;
           margin: 0.25rem 0 0.25rem;
           font-size: 1.1rem;
         }
