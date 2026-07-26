@@ -14,8 +14,9 @@ export default function ProjectsSection() {
               target='_blank'
               rel='noopener noreferrer'
             >
-              <img src={project.image} alt={project.title} />
-              <h3>{project.title}</h3>
+              <h3>
+                {project.title} &nbsp; {project.icon}
+              </h3>
               <p>{project.description}</p>
               <ul className='tags'>
                 {project.tags.map((tag) => (
@@ -31,12 +32,13 @@ export default function ProjectsSection() {
           max-width: 640px;
         }
         .grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-          gap: 1.5rem;
+          column-count: 2;
+          column-gap: 1.5rem;
         }
         .card {
           display: block;
+          break-inside: avoid;
+          margin-bottom: 1.5rem;
           color: #fff;
           text-decoration: none;
           background: #454545;
@@ -44,17 +46,20 @@ export default function ProjectsSection() {
           border-radius: 8px;
           overflow: hidden;
         }
-        .card img {
-          width: 100%;
-          height: 140px;
-          object-fit: cover;
-          display: block;
+        .card:hover {
+          border-color: #777;
         }
         .card h3,
         .card p {
+          margin: 0;
           padding: 0 1rem;
         }
+        .card h3 {
+          margin-top: 0.75rem;
+          margin-bottom: 0.35rem;
+        }
         .card p {
+          margin-bottom: 0.5rem;
           color: #bdbdbd;
           font-size: 0.9rem;
         }
@@ -62,9 +67,9 @@ export default function ProjectsSection() {
           list-style: none;
           display: flex;
           flex-wrap: wrap;
-          gap: 0.5rem;
+          gap: 0.35rem;
           margin: 0;
-          padding: 0 1rem 1rem;
+          padding: 0 1rem 0.75rem;
         }
         .tags li {
           font-size: 0.75rem;

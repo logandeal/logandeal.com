@@ -1,5 +1,9 @@
 import { timeline } from '../../data/timeline';
-import { LineDotRightHorizontal } from 'lucide-react';
+import { LineDotRightHorizontal, GraduationCap } from 'lucide-react';
+
+const ICONS = {
+  'graduation-cap': GraduationCap,
+};
 
 export default function TimelineSection() {
   return (
@@ -7,20 +11,35 @@ export default function TimelineSection() {
       <section id='timeline'>
         <h2>Timeline</h2>
         <ul>
-          {timeline.map((entry) => (
-            <li key={`${entry.title}-${entry.date}`}>
-              <span className='date'>
-                <span className='tick'>
-                  <LineDotRightHorizontal size={16} />
+          {timeline.map((entry) => {
+            const Icon = ICONS[entry.icon];
+            return (
+              <li key={`${entry.title}-${entry.date}`}>
+                <span className='date'>
+                  {entry.type != 'education' && (
+                    <span className='tick'>
+                      <LineDotRightHorizontal size={16} />
+                    </span>
+                  )}
+                  {entry.date}
                 </span>
-                {entry.date}
-              </span>
-              <h3>
-                {entry.title} • {entry.org}
-              </h3>
-              <p>{entry.description}</p>
-            </li>
-          ))}
+                <h3>
+                  {Icon && <Icon size={16} />}
+                  {entry.title} •{' '}
+                  <em>
+                    <a
+                      href={entry.orgLink}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      {entry.org}
+                    </a>
+                  </em>
+                </h3>
+                <p>{entry.description}</p>
+              </li>
+            );
+          })}
         </ul>
       </section>
       <style jsx>{`

@@ -1,11 +1,11 @@
-import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
+import { AiFillGithub, AiFillLinkedin, AiFillMail } from 'react-icons/ai';
 import { FaXTwitter } from 'react-icons/fa6';
 
 const SECTIONS = [
   { id: 'about', label: 'Me' },
   { id: 'blog', label: 'Blog' },
-  { id: 'projects', label: 'Projects' },
   { id: 'timeline', label: 'Timeline' },
+  { id: 'projects', label: 'Projects' },
   { id: 'more', label: 'More' },
 ];
 
@@ -61,6 +61,14 @@ export default function Sidebar({ activeId }) {
             aria-label='Twitter'
           >
             <FaXTwitter />
+          </a>
+          <a
+            href='mailto:logan.deal27@gmail.com'
+            target='_blank'
+            rel='noopener noreferrer'
+            aria-label='Email'
+          >
+            <AiFillMail />
           </a>
         </div>
       </aside>

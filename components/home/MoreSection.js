@@ -3,31 +3,28 @@ import { FaXTwitter } from 'react-icons/fa6';
 import { extras } from '../../data/extras';
 
 const COLUMNS = [
-  { key: 'awards', label: 'Awards' },
-  { key: 'featuredIn', label: 'Featured In' },
+  { key: 'awards', label: 'Honors' },
   { key: 'credentials', label: 'Credentials' },
+  { key: 'featuredIn', label: 'Featured' },
 ];
 
 const FOLLOW_LINKS = [
   {
     key: 'linkedin',
     href: 'https://www.linkedin.com/in/loganedeal/',
-    label: 'LinkedIn',
-    description: 'Follow my professional journey',
+    description: 'My professional journey',
     Icon: AiFillLinkedin,
   },
   {
     key: 'github',
     href: 'https://github.com/logandeal',
-    label: 'GitHub',
-    description: 'Follow my coding journey',
+    description: 'My coding journey',
     Icon: AiFillGithub,
   },
   {
     key: 'x',
     href: 'https://x.com/CaptainSwoosh_',
-    label: 'X',
-    description: 'Follow my thoughts',
+    description: 'My thoughts',
     Icon: FaXTwitter,
   },
 ];
@@ -62,7 +59,6 @@ export default function MoreSection() {
                 <Icon />
               </span>
               <div>
-                <h3>{label}</h3>
                 <p>{description}</p>
               </div>
             </a>
@@ -108,7 +104,7 @@ export default function MoreSection() {
           background: #454545;
           border: 1px solid #555;
           border-radius: 8px;
-          padding: 1.25rem 1.5rem;
+          padding: 0.75rem 1rem;
           min-width: 220px;
         }
         .follow-card:hover {

@@ -13,7 +13,7 @@ export const Post = ({ post }) => {
       <Link href={'/blog' + link}>Read →</Link>
       <style jsx>{`
         article {
-          margin-bottom: 2rem;
+          margin-bottom: 1.25rem;
         }
       `}</style>
     </article>

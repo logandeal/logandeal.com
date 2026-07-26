@@ -13,7 +13,7 @@ export default function BlogSection() {
           <Post key={post.link} post={post} />
         ))}
         <Link href='/blog' className='view-all'>
-          View all posts →
+          See all →
         </Link>
       </section>
       <style jsx>{`

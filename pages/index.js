@@ -66,8 +66,8 @@ function IndexPage() {
       <main ref={mainRef} className='sections'>
         <AboutSection />
         <BlogSection />
-        <ProjectsSection />
         <TimelineSection />
+        <ProjectsSection />
         <MoreSection />
       </main>
       <style jsx>{`

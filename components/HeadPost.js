@@ -2,7 +2,7 @@ import { Coffee } from 'lucide-react';
 
 export const HeadPost = ({ meta, isBlogPost }) => (
   <>
-    <h1 className={isBlogPost ? 'great-title' : null}>{meta.title}</h1>
+    <h1 className={isBlogPost ? 'title' : null}>{meta.title}</h1>
     <div className='details'>
       {isBlogPost ? null : <p>{meta.description}</p>}
       <span>{meta.date}</span>
@@ -14,11 +14,12 @@ export const HeadPost = ({ meta, isBlogPost }) => (
     <style jsx>
       {`
         h1 {
+          margin: 0 0 0.35rem;
           font-size: 1.5rem;
           font-weight: 700;
           color: #f39c12;
         }
-        .great-title {
+        .title {
           font-size: 2rem;
         }
         .details span {
@@ -31,7 +32,10 @@ export const HeadPost = ({ meta, isBlogPost }) => (
           gap: 0.25rem;
         }
         .details {
-          margin-bottom: 1rem;
+          margin-bottom: 0.5rem;
+        }
+        .details p {
+          margin: 0 0 0.35rem;
         }
       `}
     </style>
