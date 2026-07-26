@@ -2,7 +2,7 @@ export default function AboutSection() {
   return (
     <>
       <section id='about'>
-        <h2>About</h2>
+        <h2>Me</h2>
         <p>
           I'm a self-motivated and curiosity-driven full-stack engineer seeking
           to simplify life via software development, because software shouldn't

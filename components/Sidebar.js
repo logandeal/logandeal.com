@@ -2,7 +2,7 @@ import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 import { FaXTwitter } from 'react-icons/fa6';
 
 const SECTIONS = [
-  { id: 'about', label: 'About' },
+  { id: 'about', label: 'Me' },
   { id: 'blog', label: 'Blog' },
   { id: 'projects', label: 'Projects' },
   { id: 'timeline', label: 'Timeline' },
