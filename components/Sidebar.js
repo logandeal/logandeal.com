@@ -10,7 +10,6 @@ const SECTIONS = [
 ];
 
 export default function Sidebar({ activeId }) {
-
   return (
     <>
       <aside>
@@ -25,17 +24,19 @@ export default function Sidebar({ activeId }) {
           <h1>Logan Deal</h1>
           <p className='tagline'>Computer science entrepreneur.</p>
         </div>
-        <nav>
-          {SECTIONS.map((section) => (
-            <a
-              key={section.id}
-              href={`#${section.id}`}
-              className={activeId === section.id ? 'active' : undefined}
-            >
-              {section.label}
-            </a>
-          ))}
-        </nav>
+        <div className='nav-wrap'>
+          <nav>
+            {SECTIONS.map((section) => (
+              <a
+                key={section.id}
+                href={`#${section.id}`}
+                className={activeId === section.id ? 'active' : undefined}
+              >
+                {section.label}
+              </a>
+            ))}
+          </nav>
+        </div>
         <div className='socials'>
           <a
             href='https://www.linkedin.com/in/loganedeal/'
@@ -67,7 +68,6 @@ export default function Sidebar({ activeId }) {
         aside {
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
           width: 260px;
           flex-shrink: 0;
           height: 100vh;
@@ -84,6 +84,13 @@ export default function Sidebar({ activeId }) {
           color: #bdbdbd;
           margin: 0;
         }
+        .nav-wrap {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          min-height: 0;
+        }
         nav {
           display: flex;
           flex-direction: column;
@@ -94,8 +101,10 @@ export default function Sidebar({ activeId }) {
           color: #bdbdbd;
           font-size: 0.95rem;
         }
-        nav :global(a:hover),
         nav :global(a.active) {
+          color: #fff;
+        }
+        nav :global(a:hover) {
           color: #fff;
           text-decoration: underline;
         }
