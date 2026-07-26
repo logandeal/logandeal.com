@@ -80,18 +80,12 @@ export default function MoreSection() {
           margin-bottom: 2.5rem;
         }
         .column h3 {
-          font-family:
-            var(--font-satoshi),
-            -apple-system,
-            BlinkMacSystemFont,
-            'Segoe UI',
-            Roboto,
-            sans-serif;
+          font-family: var(--font-satoshi), sans-serif;
           font-size: 0.8rem;
           font-weight: 700;
           letter-spacing: 0.06em;
           text-transform: uppercase;
-          color: #bdbdbd;
+          color: #f39c12;
           margin-bottom: 0.5rem;
         }
         .column ul {

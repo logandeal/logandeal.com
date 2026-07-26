@@ -48,9 +48,7 @@ export default function App({ Component, pageProps }) {
       <style jsx>{`
         .app-root {
           min-height: 100vh;
-          font-family: var(--font-satoshi), -apple-system, BlinkMacSystemFont,
-            "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue",
-            sans-serif;
+          font-family: var(--font-satoshi), sans-serif;
           background-image: ${backgroundImage};
           background-position: center;
           background-repeat: no-repeat;
