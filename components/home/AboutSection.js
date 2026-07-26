@@ -4,9 +4,9 @@ export default function AboutSection() {
       <section id='about'>
         <h2>About</h2>
         <p>
-          I'm a self-motivated and curiosity-driven full-stack engineer seeking to
-          simplify life via software development, because software shouldn't make
-          life more complex than it already is.
+          I'm a self-motivated and curiosity-driven full-stack engineer seeking
+          to simplify life via software development, because software shouldn't
+          make life more complex than it already is.
         </p>
         <p>
           As a forward thinker with an entrepreneurial mindset, I like solving
@@ -18,7 +18,7 @@ export default function AboutSection() {
           attention to detail, often by finding creative solutions while
           minimizing tech debt.
         </p>
-        <p>Deal or No Deal?</p>
+        <em>Deal or No Deal?</em>
       </section>
       <style jsx>{`
         section {
