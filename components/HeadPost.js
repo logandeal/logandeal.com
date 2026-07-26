@@ -1,13 +1,14 @@
+import { Coffee } from 'lucide-react';
+
 export const HeadPost = ({ meta, isBlogPost }) => (
   <>
-    <h1 className={isBlogPost? 'great-title' :null} >{meta.title}</h1>
+    <h1 className={isBlogPost ? 'great-title' : null}>{meta.title}</h1>
     <div className='details'>
-    {
-        isBlogPost? null: <p>{meta.description}</p>
-    }  
+      {isBlogPost ? null : <p>{meta.description}</p>}
       <span>{meta.date}</span>
       <span role='img' aria-label='one coffee'>
-        ☕ {meta.readTime + ' min read'}
+        <Coffee size={16} />
+        {meta.readTime + ' min read'}
       </span>
     </div>
     <style jsx>
@@ -18,11 +19,16 @@ export const HeadPost = ({ meta, isBlogPost }) => (
           color: #f39c12;
         }
         .great-title {
-            font-size: 2rem;
+          font-size: 2rem;
         }
         .details span {
           color: #bdbdbd;
           margin-right: 1rem;
+        }
+        .details span[role='img'] {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.25rem;
         }
         .details {
           margin-bottom: 1rem;
