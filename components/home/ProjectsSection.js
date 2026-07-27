@@ -1,4 +1,5 @@
 import { projects } from '../../data/projects';
+import { ChevronRight } from 'lucide-react';
 
 export default function ProjectsSection() {
   return (
@@ -16,8 +17,16 @@ export default function ProjectsSection() {
             >
               <h3>
                 {project.title} &nbsp; {project.icon}
+                <span className='chevron'>
+                  <ChevronRight size={16} />
+                </span>
               </h3>
-              <p>{project.description}</p>
+              <p className='short-description'>
+                <span>{project.shortDescription}</span>
+              </p>
+              <p className='description'>
+                <span>{project.description}</span>
+              </p>
               <ul className='tags'>
                 {project.tags.map((tag) => (
                   <li key={tag}>{tag}</li>
@@ -45,6 +54,7 @@ export default function ProjectsSection() {
           border: 1px solid #555;
           border-radius: 8px;
           overflow: hidden;
+          transition: border-color 1s ease;
         }
         .card:hover {
           border-color: #777;
@@ -55,13 +65,54 @@ export default function ProjectsSection() {
           padding: 0 1rem;
         }
         .card h3 {
+          display: flex;
+          align-items: center;
           margin-top: 0.75rem;
           margin-bottom: 0.35rem;
         }
+        .chevron {
+          display: flex;
+          margin-left: auto;
+          flex-shrink: 0;
+          transition: transform 1s ease;
+        }
+        .card:hover .chevron {
+          transform: rotate(90deg);
+        }
         .card p {
-          margin-bottom: 0.5rem;
           color: #bdbdbd;
           font-size: 0.9rem;
+        }
+        .short-description,
+        .description {
+          display: grid;
+          overflow: hidden;
+          opacity: 0;
+          grid-template-rows: 0fr;
+          transition:
+            grid-template-rows 1s ease,
+            margin-bottom 1s ease,
+            opacity 1s ease;
+        }
+        .short-description > span,
+        .description > span {
+          overflow: hidden;
+          min-height: 0;
+        }
+        .short-description {
+          margin-bottom: 0.5rem;
+          opacity: 1;
+          grid-template-rows: 1fr;
+        }
+        .card:hover .short-description {
+          margin-bottom: 0;
+          opacity: 0;
+          grid-template-rows: 0fr;
+        }
+        .card:hover .description {
+          margin-bottom: 0.5rem;
+          opacity: 1;
+          grid-template-rows: 1fr;
         }
         .tags {
           list-style: none;

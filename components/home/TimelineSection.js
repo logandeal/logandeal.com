@@ -1,5 +1,6 @@
 import { timeline } from '../../data/timeline';
 import { LineDotRightHorizontal, GraduationCap } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 
 const ICONS = {
   'graduation-cap': GraduationCap,
@@ -35,8 +36,11 @@ export default function TimelineSection() {
                       {entry.org}
                     </a>
                   </em>
+                  <span className='chevron'>
+                    <ChevronRight size={16} />
+                  </span>
                 </h3>
-                <p>{entry.description}</p>
+                <p className='description'>{entry.description}</p>
               </li>
             );
           })}
@@ -53,7 +57,7 @@ export default function TimelineSection() {
           border-left: 2px solid #555;
         }
         li {
-          padding: 0 0 1rem 1rem;
+          padding: 0 0 0.25rem 1rem;
         }
         .date {
           position: relative;
@@ -74,9 +78,25 @@ export default function TimelineSection() {
           margin: 0.25rem 0 0.25rem;
           font-size: 1.1rem;
         }
-        p {
-          margin: 0;
+        .chevron {
+          display: flex;
+          flex-shrink: 0;
+          transition: transform 1s ease;
+        }
+        li:hover .chevron {
+          transform: rotate(90deg);
+        }
+        .description {
+          margin: 0.15rem 0 0;
           color: #bdbdbd;
+          font-size: 0.9rem;
+          line-height: 1.1;
+          min-height: 1.1em;
+          opacity: 0;
+          transition: opacity 1s ease;
+        }
+        li:hover .description {
+          opacity: 1;
         }
       `}</style>
     </>
