@@ -22,7 +22,7 @@ export default function Sidebar({ activeId }) {
             style={{ objectFit: 'cover' }}
           />
           <h1>Logan Deal</h1>
-          <p className='tagline'>Computer science entrepreneur.</p>
+          <p className='tagline'>is a Founding Engineer</p>
         </div>
         <div className='nav-wrap'>
           <nav>

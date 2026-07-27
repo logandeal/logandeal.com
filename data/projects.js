@@ -36,7 +36,7 @@ export const projects = [
     description:
       'Co-developed neuroscience and neural engineering lesson plans for K-12 classrooms. Included in poster at the Society for Neuroscience’s 50th Annual Meeting.',
     tags: ['Education', 'Neuroscience', 'Outreach'],
-    link: 'https://www.abstractsonline.com/pp8/#!/10485/presentation/19819',
+    link: 'Neural-Engineering-K-12-LoganDeal.jpeg',
     icon: '🧠',
   },
   {
