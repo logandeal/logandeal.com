@@ -5,11 +5,13 @@ export const HeadPost = ({ meta, isBlogPost }) => (
     <h1 className={isBlogPost ? 'title' : null}>{meta.title}</h1>
     <div className='details'>
       {isBlogPost ? null : <p>{meta.description}</p>}
-      <span>{meta.date}</span>
-      <span role='img' aria-label='one coffee'>
-        <Coffee size={16} />
-        {meta.readTime + ' min read'}
-      </span>
+      <div className='meta-row'>
+        <span>{meta.date}</span>
+        <span role='img' aria-label='one coffee'>
+          <Coffee size={16} />
+          {meta.readTime + ' min read'}
+        </span>
+      </div>
     </div>
     <style jsx>
       {`
@@ -32,7 +34,14 @@ export const HeadPost = ({ meta, isBlogPost }) => (
           gap: 0.25rem;
         }
         .details {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
           margin-bottom: 0.5rem;
+        }
+        .meta-row {
+          display: flex;
+          align-items: center;
         }
         .details p {
           margin: 0 0 0.35rem;

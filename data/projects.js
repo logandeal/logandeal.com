@@ -88,6 +88,14 @@ export const projects = [
     icon: '📚',
   },
   {
+    title: 'C RPG w/ Encryption',
+    description:
+      'Text-based choose-your-own-adventure game with turn-based dungeon fights, character stats/races/classes, and a Vigenère-style cipher puzzle.',
+    tags: ['C', 'Game Dev', 'Cryptography'],
+    link: 'https://github.com/logandeal/J0mRsWorld',
+    icon: '🗡️',
+  },
+  {
     title: 'Foodalyzer',
     description:
       'JavaFX app that finds the best-value fast food combo for a given budget or calorie target by ranking menu items. Built with a custom OOP model: generics, custom exceptions, comparable sorting, etc.',
