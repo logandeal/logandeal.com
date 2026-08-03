@@ -1,27 +1,128 @@
-// TODO: replace placeholder projects with real work.
+// `column` pins each project to a fixed grid column so cards never reflow
+// between columns. Order within a column follows this array's order.
 export const projects = [
+  // --- Column 1 ---
   {
-    title: 'TODO: Project One',
+    title: 'QuackGPT',
+    column: 1,
+    shortDescription: 'Educational rubber duck coding assistant',
     description:
-      'TODO: One or two sentences describing the project, the problem it solves, and the stack used.',
-    tags: ['TODO', 'Stack', 'Tags'],
-    link: 'https://github.com/logandeal',
-    image: 'https://picsum.photos/id/1018/600/400',
+      'Rubber duck coding assistant that reads your codebase and pushes you to think instead of handing you an answer.',
+    tags: ['Electron', 'React', 'Next.js', 'Mongo', 'Vercel AI SDK'],
+    link: 'https://github.com/logandeal/QuackGPT',
+    icon: '🐤',
   },
   {
-    title: 'TODO: Project Two',
+    title: 'Tidbyt Multi-Calendar',
+    column: 1,
+    shortDescription: 'Open-source Google Calendar app for IoT display',
     description:
-      'TODO: One or two sentences describing the project, the problem it solves, and the stack used.',
-    tags: ['TODO', 'Stack', 'Tags'],
-    link: 'https://github.com/logandeal',
-    image: 'https://picsum.photos/id/1015/600/400',
+      'Open-source Google Calendar app for the Tidbyt smart display that shows the next event across multiple calendars.',
+    tags: ['Open Source', 'Google Calendar API', 'IoT', 'Starlark'],
+    link: 'https://github.com/logandeal/tidbyt-calendar',
+    icon: '📅',
   },
   {
-    title: 'TODO: Project Three',
+    title: 'StoreMapper',
+    column: 1,
+    shortDescription: 'Multi-technique C++ CLI store router',
     description:
-      'TODO: One or two sentences describing the project, the problem it solves, and the stack used.',
-    tags: ['TODO', 'Stack', 'Tags'],
-    link: 'https://github.com/logandeal',
-    image: 'https://picsum.photos/id/1019/600/400',
+      'C++ CLI grocery store router that applies Dijkstra’s algorithm & Traveling Salesman Problem techniques to find the shortest path through a store while hitting every item on a list. Includes Singleton/Strategy design patterns and a unit test suite.',
+    tags: ['C++', 'Algorithms', 'Design Patterns', 'Docker'],
+    link: 'https://github.com/logandeal/StoreMapper',
+    icon: '📍',
+  },
+  {
+    title: 'Echotour',
+    column: 1,
+    shortDescription: 'Speech-recognition tour guide web app',
+    description:
+      'Speech-recognition tour guide web app, especially for the visually impaired, built with Web Speech API. Reads numbered instructions aloud and listens for voice prompts to determine next steps.',
+    tags: ['JavaScript', 'Web Speech API', 'Accessibility'],
+    link: 'https://github.com/logandeal/echotour',
+    icon: '📢',
+  },
+  {
+    title: 'K-12 Neural Engineering',
+    column: 1,
+    shortDescription: 'Neural engineering lessons for K-12 classrooms',
+    description:
+      'Co-developed neuroscience and neural engineering lesson plans for K-12 classrooms. Included in poster at the Society for Neuroscience’s 50th Annual Meeting.',
+    tags: ['Education', 'Neuroscience', 'Outreach'],
+    link: 'Neural-Engineering-K-12-LoganDeal.jpeg',
+    icon: '🧠',
+  },
+  {
+    title: 'Encyclofreedia',
+    column: 1,
+    shortDescription:
+      'Self-hostable, Reddit-style knowledge base for local resources',
+    description:
+      'Self-hostable, Reddit-style knowledge base for local resources, organized by topics, subtopics, and community-submitted posts with voting. Split into a federated "hub" and "scribe" instance model, all Dockerized.',
+    tags: ['TypeScript', 'Ionic', 'Django', 'MySQL', 'Docker'],
+    link: 'https://github.com/logandeal/encyclofreedia',
+    icon: '📚',
+  },
+
+  // --- Column 2 ---
+  {
+    title: 'Digital Biology LLM Benchmark',
+    column: 2,
+    shortDescription: 'LLM benchmarking for disease gene generation',
+    description:
+      'Fellowship research in the Digital Biology Lab testing LLMs on generating neurodegenerative disease genes, comparing prompt strategies and models. Defended at Fall Research Day.',
+    tags: ['LLMs', 'Research', 'Python'],
+    link: 'https://github.com/logandeal/Mining-Neurodegenerative-Genes-Using-Large-Language-Models',
+    icon: '🧬',
+  },
+  {
+    title: 'MindFlash Game',
+    column: 2,
+    shortDescription: 'Lua memory game, Xbox-compatible',
+    description:
+      'Memory game built in Lua on Roblox, Xbox-compatible, with client-server interactions, event handling, and datastores. Shipped my own UI, 3D assets, sound, and icons, and drew 1K+ monthly active users.',
+    tags: ['Lua', 'Roblox', 'Game Dev', 'Xbox'],
+    link: 'https://github.com/logandeal/Roblox',
+    icon: '🎮',
+  },
+  {
+    title: 'Flickington',
+    column: 2,
+    shortDescription: 'Movie recommendation web app',
+    description:
+      'Movie recommendation web app that suggests the next best thing to watch at the click of a button.',
+    tags: ['React', 'TypeScript', 'Next.js', 'Vercel'],
+    link: 'https://github.com/logandeal/flickington',
+    icon: '🎬',
+  },
+  {
+    title: 'ARea',
+    column: 2,
+    shortDescription: 'Educational AR project builder + player',
+    description:
+      'Educational AR project builder + player, built at Missouri Startup Weekend.',
+    tags: ['Swift', 'ARKit', 'iOS'],
+    link: 'https://github.com/logandeal/discovAR',
+    icon: '🎓',
+  },
+  {
+    title: 'Resurf',
+    column: 2,
+    shortDescription: 'Crowdsourced bookmark aggregator',
+    description:
+      'Crowdsourced bookmark aggregator for great websites that may not have the SEO to be found. Built at Missouri Startup Weekend.',
+    tags: ['React Native', 'Expo', 'Hasura', 'GraphQL', 'OpenAI'],
+    link: 'https://github.com/logandeal/resurf',
+    icon: '📑',
+  },
+  {
+    title: 'Foodalyzer',
+    column: 2,
+    shortDescription: 'JavaFX app that finds the best-value fast food combo',
+    description:
+      'JavaFX app that finds the best-value fast food combo for a given budget or calorie target by ranking menu items. Built with a custom OOP model: generics, custom exceptions, comparable sorting, etc.',
+    tags: ['Java', 'JavaFX', 'OOP'],
+    link: 'https://github.com/logandeal/Foodalyzer',
+    icon: '🍔',
   },
 ];
