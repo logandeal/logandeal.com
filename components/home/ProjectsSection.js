@@ -1,53 +1,65 @@
+import { useLayoutEffect, useRef } from 'react';
 import { projects } from '../../data/projects';
 import { ChevronRight } from 'lucide-react';
 
-export default function ProjectsSection() {
+const columns = [
+  projects.filter((project) => project.column === 1),
+  projects.filter((project) => project.column === 2),
+];
+
+function ProjectCard({ project, order }) {
+  const descRef = useRef(null);
+  const shortRef = useRef(null);
+  const longRef = useRef(null);
+
+  // The card eases smoothly between the short and long description heights.
+  // CSS can't transition to/from an intrinsic "auto" height, so we measure
+  // both descriptions once they've rendered and expose them as custom
+  // properties that the height transition below can target directly.
+  useLayoutEffect(() => {
+    descRef.current.style.setProperty(
+      '--short-h',
+      `${shortRef.current.offsetHeight}px`,
+    );
+    descRef.current.style.setProperty(
+      '--long-h',
+      `${longRef.current.offsetHeight}px`,
+    );
+  }, []);
+
   return (
-    <>
-      <section id='projects'>
-        <h2>Projects</h2>
-        <div className='grid'>
-          {projects.map((project) => (
-            <a
-              key={project.title}
-              className='card'
-              href={project.link}
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              <h3>
-                {project.title} &nbsp; {project.icon}
-                <span className='chevron'>
-                  <ChevronRight size={16} />
-                </span>
-              </h3>
-              <p className='short-description'>
-                <span>{project.shortDescription}</span>
-              </p>
-              <p className='description'>
-                <span>{project.description}</span>
-              </p>
-              <ul className='tags'>
-                {project.tags.map((tag) => (
-                  <li key={tag}>{tag}</li>
-                ))}
-              </ul>
-            </a>
-          ))}
+    <a
+      className='card'
+      href={project.link}
+      target='_blank'
+      rel='noopener noreferrer'
+      // Only consumed by the single-column mobile layout, where the
+      // columns collapse and the cards interleave back into
+      // reading order: col1[0], col2[0], col1[1], col2[1], ...
+      style={{ order }}
+    >
+      <h3>
+        {project.title} &nbsp; {project.icon}
+        <span className='chevron'>
+          <ChevronRight size={16} />
+        </span>
+      </h3>
+      <div className='descriptions' ref={descRef}>
+        <div className='desc short' ref={shortRef}>
+          <p>{project.shortDescription}</p>
         </div>
-      </section>
+        <div className='desc long' ref={longRef}>
+          <p>{project.description}</p>
+        </div>
+      </div>
+      <ul className='tags'>
+        {project.tags.map((tag) => (
+          <li key={tag}>{tag}</li>
+        ))}
+      </ul>
       <style jsx>{`
-        section {
-          max-width: 640px;
-        }
-        .grid {
-          column-count: 2;
-          column-gap: 1.5rem;
-        }
         .card {
           display: block;
-          break-inside: avoid;
-          margin-bottom: 1.5rem;
           color: #fff;
           text-decoration: none;
           background: #454545;
@@ -83,37 +95,43 @@ export default function ProjectsSection() {
           color: #bdbdbd;
           font-size: 0.9rem;
         }
-        .short-description,
-        .description {
+
+        /* .short and .long are overlaid in the same grid cell so neither
+           displaces the other. The container's own height eases between
+           the two measured pixel heights above, and the text cross-fades
+           on a tighter, staggered schedule so you never read half-clipped
+           lines. */
+        .descriptions {
           display: grid;
+          align-items: start;
           overflow: hidden;
-          opacity: 0;
-          grid-template-rows: 0fr;
-          transition:
-            grid-template-rows 1s ease,
-            margin-bottom 1s ease,
-            opacity 1s ease;
-        }
-        .short-description > span,
-        .description > span {
-          overflow: hidden;
-          min-height: 0;
-        }
-        .short-description {
           margin-bottom: 0.5rem;
-          opacity: 1;
-          grid-template-rows: 1fr;
+          height: var(--short-h, auto);
+          transition: height 1s ease;
         }
-        .card:hover .short-description {
-          margin-bottom: 0;
+        .card:hover .descriptions {
+          height: var(--long-h, auto);
+        }
+        .desc {
+          grid-area: 1 / 1;
+        }
+        .short > p {
+          opacity: 1;
+          transition: opacity 0.5s ease;
+        }
+        .card:hover .short > p {
           opacity: 0;
-          grid-template-rows: 0fr;
+          transition: opacity 0.5s ease;
         }
-        .card:hover .description {
-          margin-bottom: 0.5rem;
+        .long > p {
+          opacity: 0;
+          transition: opacity 0.5s ease;
+        }
+        .card:hover .long > p {
           opacity: 1;
-          grid-template-rows: 1fr;
+          transition: opacity 0.5s ease;
         }
+
         .tags {
           list-style: none;
           display: flex;
@@ -125,6 +143,60 @@ export default function ProjectsSection() {
         .tags li {
           font-size: 0.75rem;
           color: #f39c12;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          /* TODO(human): decide the no-motion behavior for the description swap. */
+        }
+      `}</style>
+    </a>
+  );
+}
+
+export default function ProjectsSection() {
+  return (
+    <>
+      <section id='projects'>
+        <h2>Projects</h2>
+        <div className='grid'>
+          {columns.map((column, columnIndex) => (
+            <div className='column' key={columnIndex}>
+              {column.map((project, rowIndex) => (
+                <ProjectCard
+                  key={project.title}
+                  project={project}
+                  order={rowIndex * 2 + columnIndex}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
+      </section>
+      <style jsx>{`
+        section {
+          max-width: 640px;
+        }
+        .grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1.5rem;
+          align-items: start;
+        }
+        .column {
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+        }
+
+        @media (max-width: 640px) {
+          .grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+          }
+          .column {
+            display: contents;
+          }
         }
       `}</style>
     </>

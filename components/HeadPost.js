@@ -7,7 +7,7 @@ export const HeadPost = ({ meta, isBlogPost }) => (
       {isBlogPost ? null : <p>{meta.description}</p>}
       <div className='meta-row'>
         <span>{meta.date}</span>
-        <span role='img' aria-label='one coffee'>
+        <span className='read-time' role='img' aria-label='one coffee'>
           <Coffee size={16} />
           {meta.readTime + ' min read'}
         </span>
@@ -31,13 +31,13 @@ export const HeadPost = ({ meta, isBlogPost }) => (
         .details span[role='img'] {
           display: inline-flex;
           align-items: center;
-          gap: 0.25rem;
+          gap: 0.35rem;
         }
         .details {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.35rem;
         }
         .meta-row {
           display: flex;
@@ -45,6 +45,10 @@ export const HeadPost = ({ meta, isBlogPost }) => (
         }
         .details p {
           margin: 0 0 0.35rem;
+        }
+        .read-time {
+          opacity: var(--read-time-opacity);
+          transition: opacity 1s ease;
         }
       `}
     </style>

@@ -14,6 +14,10 @@ export const Post = ({ post }) => {
       <style jsx>{`
         article {
           margin-bottom: 1.25rem;
+          --read-time-opacity: 0;
+        }
+        article:hover {
+          --read-time-opacity: 1;
         }
       `}</style>
     </article>
